@@ -1,0 +1,31 @@
+<ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>בייביסיטר</ion-title>
+        <img src="assets/img/home/6.jpg" >
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink='/tabs/login' *ngIf="!(authservice.currentUser())">
+          <ion-icon name="log-in-outline" color="danger" slot="start"></ion-icon>
+          <ion-label>הכנס</ion-label>
+         </ion-item>
+        <ion-item (click)='authservice.logout()' *ngIf="authservice.currentUser()">
+          <ion-icon name="exit-outline" slot="start"></ion-icon>
+          <ion-label> צא</ion-label>
+         </ion-item>
+        <ion-item routerLink='/tabs/updateUser' *ngIf="authservice.currentUser()">
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          <ion-label>עדכן</ion-label>
+         </ion-item>
+        <ion-item  routerLink='/tabs/signup' *ngIf="!(authservice.currentUser())"> 
+          <ion-icon name="person-add-outline" slot="start"></ion-icon>
+          <ion-label>הרשם</ion-label></ion-item>
+        <ion-item routerLink='/tabs/home' > 
+          <ion-icon name="home-outline" slot="start" ></ion-icon>
+          <ion-label>בית</ion-label></ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet> 

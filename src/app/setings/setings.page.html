@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>הגדרות הודעות</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <!-- <ion-card><img class="img-wrapper" src="../../assets/img/home/9.jpg" sizeLg="4" sizeMd="4" sizeXs="6"></ion-card> -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">הגדרות הודעות</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form (submit)='submitForm()' novalidate [formGroup]="ionicForm">
+    <ion-list>
+      <ion-item>
+        <ion-label>עוצמת שמע</ion-label>
+        <ion-icon slot="start"  name="mic-outline"></ion-icon>
+        <ion-select formControlName='sound' value="חלש" okText="אישור" cancelText="ביטול">
+          <ion-select-option value="חלש">
+            חלש</ion-select-option>
+          <ion-select-option value="בינוני">
+            בינוני</ion-select-option>
+          <ion-select-option value="חזק">
+            חזק</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>תדירות שליחת הודעה</ion-label>
+        <ion-icon slot="start" name="notifications-outline"></ion-icon>
+        <ion-select formControlName='decibels' value="3" okText="אישור" cancelText="ביטול">
+          <ion-select-option value="3">
+            כל 3 דקות
+            
+          </ion-select-option>
+          <ion-select-option value="5">
+            כל 5 דקות</ion-select-option>
+          <ion-select-option value="7">
+            כל 7 דקות</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button size="large" type="submit">הכנס</ion-button>
+  </form>
+</ion-content>

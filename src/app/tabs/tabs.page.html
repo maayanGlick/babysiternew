@@ -1,0 +1,48 @@
+
+
+  <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="login"   *ngIf="!(authservice.currentUser())">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>הכנס</ion-label>
+    </ion-tab-button>
+    <!-- <ion-tab-button tab="updateUser"   *ngIf="authservice.currentUser()"  >
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>עדכון</ion-label>
+    </ion-tab-button> -->
+    <!-- <ion-tab-button tab="signup" *ngIf="!(authservice.currentUser())" >
+      <ion-icon name="square"></ion-icon>
+      <ion-label> הרשם</ion-label>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="logOut"   (click)='authservice.logout()' *ngIf="authservice.currentUser()">
+      <ion-icon name="exit-outline"></ion-icon>
+      <ion-label> צא</ion-label>
+    </ion-tab-button>
+      <ion-tab-button tab="zoom"   *ngIf="authservice.currentUser()">
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label>זום</ion-label>
+      </ion-tab-button>
+        <ion-tab-button tab="home"   *ngIf="authservice.currentUser()">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>בית</ion-label>
+        </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
+
+ 
+
+<!-- <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button autoHide="false"></ion-menu-button>
+
+  </ion-buttons>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar> -->
+<!-- <ion-img alt="icon" src="assets/img/logo/1.jpg"></ion-img> -->
+

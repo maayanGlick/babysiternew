@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    דף הבית
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+     
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content ng-app="ionicApp" ng-controller="SlideController">
+
+  <ion-title>
+ <!-- <img  src="assets/img/logo/1.png" style="width: 90px;" class="center" > -->
+  </ion-title>
+
+
+  
+<div class="container" >
+  <img src="assets/img/home/6.jpg" >
+
+ 
+ 
+  <div class="centered">
+
+    <div  class="center" routerLink='/sideMenu/login'>
+      <ion-button color="danger" size="large" *ngIf="!auth.currentUser()" ><span>התחילו בביביסיטר</span></ion-button>
+    </div>
+     <p  > אפליקציית בייביסיטר לשמירה על הילד שלכם אונליין בכל עת!</p>
+  </div>
+</div>
+
+
+  <ion-slides autoplay="5000" loop="true" speed="3000">
+    <ion-slide *ngFor="let slide of imgs">
+      <img src="{{slide}}" />
+    </ion-slide>
+  </ion-slides>
+
+
+
+</ion-content>

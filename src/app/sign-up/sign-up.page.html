@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>הרשמה  </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-content>
+    <form (submit)='submitForm()'  novalidate [formGroup]="ionicForm" >
+    <ion-item lines="full">
+      <ion-label position="floating">  תעודת זהות</ion-label>
+      <ion-input type="text"  formControlName="Tz" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> שם פרטי </ion-label>
+      <ion-input type="text" formControlName="FirstName" ></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.FirstName.errors?.required">
+      Name is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.FirstName.errors?.minlength">
+      Name should be min 2 chars long.
+    </span>
+    <ion-item>
+      <ion-label position="floating"> שם משפחה </ion-label>
+      <ion-input type="text"  formControlName="LastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> טלפון </ion-label>
+      <ion-input type="text"  maxlength="10" formControlName="Phone" required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Phone.errors?.required">
+     טלפון נדרש
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Phone.errors?.pattern">
+    הכנס מספרים בלבד
+    </span>
+    <ion-item>
+      <ion-label position="floating">עיר  </ion-label>
+      <ion-input type="text"  formControlName='City'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל </ion-label>
+      <ion-input type="email" formControlName="Email"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Email.errors?.required">
+      מייל נדרש
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Email.errors?.pattern">
+     הכנס מייל חוקי
+    </span>
+
+    <ion-item>
+      <ion-label position="floating"> יום הולדת </ion-label>
+      <ion-datetime (ionChange)="getDate($event)" formControlName="BirthDate" [value]="defaultDate" ></ion-datetime>
+      <!-- <ion-input type="text" [(ngModel)]="user.BirthDate" name='birthDate'></ion-input> -->
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> שם הילד </ion-label>
+      <ion-input type="text" formControlName="ChildName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> שם משתמש </ion-label>
+      <ion-input type="text" formControlName='UserName'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> סיסמא </ion-label>
+      <ion-input formControlName='Password' [type]="getType()"></ion-input>
+      <ion-icon slot='end' name="eye" item-right (click)="toggleTextPassword()"></ion-icon>
+  </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.pattern">
+      At least eight numbers or/and letters of English or Hebrew language
+     </span>
+    <ion-item>
+      <ion-label position="floating"> אימות סיסמא </ion-label>
+      <ion-input type="text" (ionChange)='verificationPassword($event)'></ion-input>
+    </ion-item>
+  
+    <ion-button  size="large"  type='submit'>צור משתמש</ion-button> 
+  </form>
+ 
+  <p> <span #header></span></p>
+
+
+
+</ion-content>

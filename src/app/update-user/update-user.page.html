@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>עדכון משתמש  </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (submit)='update()'>
+  <ion-item>
+    <ion-label position="floating">{{user.Tz}}  תעודת זהות</ion-label>
+    <!-- <ion-input type="text" [(ngModel)]="user.Tz" name='tz'></ion-input> -->
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> שם פרטי </ion-label>
+    <ion-input type="text" [(ngModel)]="user.FirstName" name='firstName'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> שם משפחה </ion-label>
+    <ion-input type="text" [(ngModel)]="user.LastName" name='lastName'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> טלפון </ion-label>
+    <ion-input type="text" [(ngModel)]="user.Phone" name='phone'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">עיר  </ion-label>
+    <ion-input type="text" [(ngModel)]="user.City" name='city'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> מייל </ion-label>
+    <ion-input type="text" [(ngModel)]="user.Email" name='email'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> יום הולדת </ion-label>
+    <ion-input type="text" [(ngModel)]="user.BirthDate" name='birthDate'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">שם הילד </ion-label>
+    <ion-input type="text" [(ngModel)]="user.ChildName" name='zoom'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> שם משתמש </ion-label>
+    <ion-input type="text" [(ngModel)]="user.UserName" name='userName'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> סיסמא </ion-label>
+    <ion-input type="text" [(ngModel)]="user.Password" name='password'></ion-input>
+  </ion-item>
+  <ion-button  size="large"  type='submit'>עדכן</ion-button>
+</form>
+  <p> <span #header></span></p>
+
+
+
+</ion-content>

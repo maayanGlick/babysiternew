@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>כניסה</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <!-- <ion-card><img class="img-wrapper" src="../../assets/img/home/9.jpg" sizeLg="4" sizeMd="4" sizeXs="6"></ion-card> -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">כניסה</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="speaker-background">
+    <img src="assets/img/logo/1.png" alt="logo">
+    <h2  >שלום אורח</h2>
+  
+  </div>
+
+
+  <form (submit)='submitForm()' novalidate [formGroup]="ionicForm">
+    <ion-item>
+      <ion-label position="floating"> שם משתמש </ion-label>
+      <ion-input type="text" formControlName='UserName'></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.UserName.errors?.required">
+      שם משתמש נדרש
+    </span>
+    <ion-item>
+      <ion-label position="floating"> סיסמא </ion-label>
+      <ion-input formControlName='Password' [type]="getType()"></ion-input>
+      <ion-icon slot='end' name="eye" item-right (click)="toggleTextPassword()"></ion-icon>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required">
+      סיסמא נדרשת
+    </span>
+    <ion-list>
+      <ion-item>
+        <ion-label>משתמש האפליקציה</ion-label>
+        <ion-select   ok-text="אשר משתמש" cancel-text="בטל" formControlName='TypeUser'  >
+          <!-- (ionChange)="change($event)" -->
+          <ion-select-option *ngFor="let user of typesUsers" value="{{user}}"> {{user}} </ion-select-option>
+          </ion-select>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.TypeUser.errors?.required">
+       סוג משתמש נדרש
+      </span>
+    </ion-list>
+    <ion-list >
+      <!-- *ngIf="typeUser()=='הורה'" class="t1" id="t" -->
+      <ion-item>
+        <ion-label position="floating"> שם הילד </ion-label>
+      <ion-input type="text" formControlName='ChildName'></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.ChildName.errors?.required">
+     שאלת אימות שם ילד נדרש
+    </span>
+    </ion-list>
+    
+    <ion-button size="large" type="submit">הכנס</ion-button>
+    <span>{{auth.message.error}}</span>
+  </form>
+</ion-content>

@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-item>
+    <ion-label>משתמש האפליקציה</ion-label>
+    <ion-select placeholder="בחר" name="selectUser"  (ionChange)="change($event)">
+      <ion-select-option *ngFor="let b of typesUsers" [value]="b" >{{b}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
